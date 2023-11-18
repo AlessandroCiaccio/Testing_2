@@ -1,24 +1,27 @@
 import org.junit.jupiter.api.Test;
 
 import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
-    private final Main testing = new Main();
+    private final Main testing=new Main();
 
     @Test
-    void main() {
-        OffsetDateTime data = OffsetDateTime.parse("2012-04-01T13:00:00Z");
-        String fullData = (data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
+    void dataFull() {
+        String dataFull=testing.dataFull(OffsetDateTime.parse("2002-03-01T13:00:00Z"));
+        assert dataFull.equals("venerdì 1 marzo 2002"): "La data è sbagliata";
+    }
 
-        String mediumData = (data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
+    @Test
+    void dataMedium() {
+        String dataMedium=testing.dataMedium(OffsetDateTime.parse("2002-03-01T13:00:00Z"));
+        assert dataMedium.equals("1 mar 2002"): "La data è sbagliata";
+    }
 
-        String shortData = (data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
-        assert fullData.equals("domenica 1 aprile 2012") : "Test fallito: la data full non è corretta";
-        assert mediumData.equals("1 apr 2012") : "Test fallito: la data medium non è corretta";
-        assert shortData.equals("01/04/12") : "Test fallito: la data short non è corretta";
+    @Test
+    void dataShort() {
+        String dataShort=testing.dataShort(OffsetDateTime.parse("2002-03-01T13:00:00Z"));
+        assert dataShort.equals("01/03/2002"): "La data è sbagliata";
     }
 }
