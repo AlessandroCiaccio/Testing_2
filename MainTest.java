@@ -17,8 +17,8 @@ class MainTest {
         String mediumData = (data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
 
         String shortData = (data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
-        assert fullData.equals("domenica 1 aprile 2012") : "Test superato: la data full è corretta";
-        assert mediumData.equals("1 apr 2012") : "Test superato: la data medium è corretta";
-        assert shortData.equals("01/04/12") : "Test superato: la data short è corretta";
+        assert fullData.equals("domenica 1 aprile 2012") : "Test fallito: la data full non è corretta";
+        assert mediumData.equals("1 apr 2012") : "Test fallito: la data medium non è corretta";
+        assert shortData.equals("01/04/12") : "Test fallito: la data short non è corretta";
     }
 }
