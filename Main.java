@@ -15,14 +15,23 @@ public class Main {
     }
 
     public static String dataFull(OffsetDateTime data) {
+        if(data==null){
+            return null;
+        }
         return data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
     }
 
     public static String dataMedium(OffsetDateTime data) {
+        if(data==null){
+            return null;
+        }
         return data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
     }
 
     public static String dataShort(OffsetDateTime data) {
+        if(data==null){
+            return null;
+        }
         return data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
     }
 }

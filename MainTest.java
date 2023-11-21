@@ -10,18 +10,33 @@ class MainTest {
     @Test
     void dataFull() {
         String dataFull=testing.dataFull(OffsetDateTime.parse("2002-03-01T13:00:00Z"));
-        assert dataFull.equals("venerdì 1 marzo 2002"): "La data è sbagliata";
+        assertEquals("venerdì 1 marzo 2002",dataFull);
     }
 
     @Test
     void dataMedium() {
         String dataMedium=testing.dataMedium(OffsetDateTime.parse("2002-03-01T13:00:00Z"));
-        assert dataMedium.equals("1 mar 2002"): "La data è sbagliata";
+        assertEquals("1 mar 2002",dataMedium);
     }
 
     @Test
     void dataShort() {
         String dataShort=testing.dataShort(OffsetDateTime.parse("2002-03-01T13:00:00Z"));
-        assert dataShort.equals("01/03/2002"): "La data è sbagliata";
+        assertEquals("01/03/02",dataShort);
+    }
+    @Test
+    void nullCaseFull(){
+        String nullFull=null;
+        assertNull(nullFull,"The data is null");
+    }
+    @Test
+    void nullCaseMedium(){
+        String nullMedium=null;
+        assertNull(nullMedium,"The data is null");
+    }
+    @Test
+    void nullCaseShort(){
+        String nullShort=null;
+        assertNull(nullShort,"The data is null");
     }
 }
